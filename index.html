@@ -22,10 +22,13 @@ body {
     margin:0;
     background-color:#0a0a0a;
     background-image:url("arkaplan.jpeg");
-    background-size:cover;
-    background-position:center center;
+
+    /* JPEG çok büyüyorsa */
+    background-size:100% auto;
     background-repeat:no-repeat;
+    background-position:center top;
     background-attachment:scroll;
+
     color:#ddd;
     font-family:Arial, sans-serif;
     text-align:center;
@@ -124,7 +127,6 @@ p{
 }
 
 
-
 /* Çalışmalarım butonu */
 
 .work-img{
@@ -152,7 +154,26 @@ p{
 
 
 /* Bölümler */
+.gallery{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-top:50px;
+}
 
+.gallery img{
+    width:320px;
+    max-width:90%;
+    border:2px solid #444;
+    transition:.3s;
+    filter:grayscale(100%);
+}
+
+.gallery img:hover{
+    filter:grayscale(0%);
+    transform:scale(1.03);
+}
 
 section{
 
@@ -243,16 +264,16 @@ Motosiklet Süslemeleri ve Gotik Tasarımlar
 
 <section id="kafalar">
 
-
 <h1>Kafatası Çalışmaları</h1>
 
+<div class="gallery">
 
-<p>
+    <img src="kafa1.jpg" alt="Kafatası">
+    <img src="kafa2.jpg" alt="Kafatası">
+    <img src="kafa3.jpg" alt="Kafatası">
+    <img src="kafa4.jpg" alt="Kafatası">
 
-Buraya kafatası fotoğraflarını ekleyeceğiz.
-
-</p>
-
+</div>
 
 </section>
 
