@@ -12,7 +12,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
-
 <style>
 
 html {
@@ -31,27 +30,19 @@ body {
     background-attachment: fixed;
 }
 
-
-/* Üst bölüm */
+/* ÜST */
 
 header {
     padding-top: 40px;
     text-align: center;
 }
 
-
 .logo{
-
     width:650px;
     max-width:90%;
-
     display:block;
-
     margin:0 auto 25px;
-
 }
-
-
 
 p{
     font-family:'Cinzel',serif;
@@ -60,93 +51,69 @@ p{
     margin-bottom:30px;
     letter-spacing:2px;
     font-weight:500;
-
     text-align:center;
     color:#ddd;
 }
 
-
-
-/* Fotoğraf kutuları */
+/* SHOWCASE FRAME SİSTEMİ */
 
 .showcase{
-
     display:flex;
-
     justify-content:center;
-
     gap:30px;
-
     flex-wrap:wrap;
-
     margin-bottom:20px;
-
 }
 
-
-
-.box{
-
-    display:block;
-
-    width:450px;
-
-    overflow:hidden;
-
-    border:2px solid #444;
-
+.frame {
+    position: relative;
+    width: 450px;
+    display: block;
 }
 
-
-
-.box img{
-
-    width:100%;
-
-    display:block;
-
-    transition:.3s;
-
+.frame img {
+    display: block;
 }
 
-
-
-.box:hover img{
-
-    transform:scale(1.05);
-
-    filter:brightness(1.15);
-
+.frame-img {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
 }
 
+.content-img {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    z-index: 1;
+    transition: 0.3s;
+}
 
-/* Çalışmalarım butonu */
+.frame:hover .content-img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* BUTON */
 
 .work-img{
-
     width:400px;
-
     max-width:90%;
-
     margin-top:20px;
-
     transition:.3s;
-
 }
-
-
 
 .work-img:hover{
-
     transform:scale(1.08);
-
     filter:brightness(1.3);
-
 }
 
+/* GALERİ */
 
-
-/* Bölümler */
 .gallery{
     display:flex;
     justify-content:center;
@@ -169,22 +136,17 @@ p{
 }
 
 section{
-
     padding:150px 20px;
-
     min-height:500px;
-
 }
-
-
 
 section h1{
-
     font-family:'Cinzel',serif;
-
     font-size:42px;
-
 }
+
+/* MOBILE */
+
 @media (max-width: 768px) {
 
     body {
@@ -221,126 +183,66 @@ section h1{
 
 </style>
 
-
 </head>
-
 
 <body>
 
-
 <header>
 
-
-<img src="lathskull.png" alt="LathSkull Logo" class="logo">
-
-
+<img src="lathskull.png" class="logo">
 
 <p>
-
 El İşçiliği Gravürlü Kafatasları,<br>
-
 Motosiklet Süslemeleri ve Gotik Tasarımlar
-
 </p>
-
-
-
 
 <div class="showcase">
 
+    <a href="#kafalar" class="frame">
+        <img src="cerceve.png" class="frame-img">
+        <img src="kafa.jpg" class="content-img">
+    </a>
 
-
-<a href="#kafalar" class="box">
-
-<img src="kafa.jpg" alt="Kafatasları">
-
-</a>
-
-
-
-<a href="#motorlar" class="box">
-
-<img src="motor.jpg" alt="Motorlar">
-
-</a>
-
-
+    <a href="#motorlar" class="frame">
+        <img src="cerceve.png" class="frame-img">
+        <img src="motor.jpg" class="content-img">
+    </a>
 
 </div>
 
-
-
-
-
 <a href="#galeri">
-
-<img src="calismalarim.png" alt="Çalışmalarımı Gör" class="work-img">
-
+<img src="calismalarim.png" class="work-img">
 </a>
-
-
 
 </header>
 
-
-
-
-
 <section id="kafalar">
-
 <h1>Kafatası Çalışmaları</h1>
-
 <div class="gallery">
-
-    <img src="kafa1.jpg" alt="Kafatası">
-    <img src="kafa2.jpg" alt="Kafatası">
-    <img src="kafa3.jpg" alt="Kafatası">
-
+    <img src="kafa1.jpg">
+    <img src="kafa2.jpg">
+    <img src="kafa3.jpg">
 </div>
-
 </section>
-
-
-
-
-
 
 <section id="motorlar">
-
 <h1>Motosiklet Gravürleri</h1>
-
 <div class="gallery">
-
-    <img src="motor1.jpg" alt="Motosiklet Gravürü">
-    <img src="motor2.jpg" alt="Motosiklet Gravürü">
-    <img src="motor3.jpg" alt="Motosiklet Gravürü">
-
+    <img src="motor1.jpg">
+    <img src="motor2.jpg">
+    <img src="motor3.jpg">
 </div>
-
 </section>
-
-
-
-
-
 
 <section id="galeri">
-
 <h1>Tüm Çalışmalar</h1>
-
 <div class="gallery">
-
-    <img src="calisma1.jpg" alt="Çalışma">
-    <img src="calisma2.jpg" alt="Çalışma">
-    <img src="calisma3.jpg" alt="Çalışma">
-    <img src="calisma3.jpg" alt="Çalışma">
+    <img src="calisma1.jpg">
+    <img src="calisma2.jpg">
+    <img src="calisma3.jpg">
+    <img src="calisma3.jpg">
 </div>
-
 </section>
 
-
-
-
 </body>
-
 </html>
