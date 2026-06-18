@@ -113,6 +113,8 @@ p{
     width: 42%;
     height: 76%;
     overflow: hidden;
+    z-index: 2;
+    display: block;
 }
 
 .split-frame .left {
@@ -246,19 +248,22 @@ Motosiklet Süslemeleri ve Gotik Tasarımlar
 
 <div class="showcase">
 
-    <a href="#motorlar" class="split-frame">
+    <div class="split-frame">
 
-        <div class="half left">
+        <!-- SOL: MOTOR -->
+        <a href="#motorlar" class="half left">
             <img src="motor.jpg">
-        </div>
+        </a>
 
-        <div class="half right">
+        <!-- SAĞ: KAFATASI -->
+        <a href="#kafalar" class="half right">
             <img src="kafa.jpg">
-        </div>
+        </a>
 
+        <!-- ÇERÇEVE ÜSTTE -->
         <img src="cerceve.png" class="frame-overlay">
 
-    </a>
+    </div>
 
 </div>
 
