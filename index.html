@@ -72,8 +72,10 @@ body {
 /* HEADER */
 
 header {
-    padding-top: 40px;
-    text-align: center;
+    padding-top: 20px; /* 40 → 20 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo{
@@ -84,22 +86,16 @@ header {
 }
 
 p{
-    font-family:'Cinzel',serif;
-    font-size:35px;
-    margin-top:40px;
-    margin-bottom:30px;
-    letter-spacing:2px;
-    font-weight:500;
-    text-align:center;
-    color:#ddd;
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 /* SHOWCASE SPLIT FRAME */
 
 .showcase{
-    display:flex;
-    justify-content:center;
-    margin-bottom:20px;
+    margin-bottom: 5px;
+    margin-top: -10px;
 }
 
 .split-frame {
@@ -149,10 +145,8 @@ p{
 }
 
 /* WORK IMG */
-.work-img {
-    width: 420px;
-    max-width: 90%;
-    margin-top: 0px;
+.work-img{
+    margin-top: -10px;
 }
 
 .work-img:hover{
@@ -206,10 +200,11 @@ section h1{
     }
 
     .logo {
-        width: 90%;
-        max-width: 420px;
-        margin-bottom: 10px;
-    }
+    width: 85%;
+    max-width: 380px;
+    margin-bottom: 5px;
+    margin-top: -10px;
+}
 
     p {
         font-size: 22px;
