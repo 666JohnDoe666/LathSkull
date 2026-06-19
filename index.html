@@ -22,7 +22,7 @@
             overflow-x: hidden;
             line-height: 1.6;
             background-image: url('https://666johndoe666.github.io/LathSkull/arkaplandesktop.png');
-            background-size: cover;
+            background-size: 100% 100%;
             background-position: center top;
             background-attachment: fixed;
             background-repeat: no-repeat;
@@ -41,8 +41,8 @@
             position: fixed;
             inset: 0;
             background-image: url('https://666johndoe666.github.io/LathSkull/arkaplandesktop.png');
-            background-size: cover;
-            background-position: center;
+            background-size: 100% 100%;
+            background-position: center top;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -124,7 +124,7 @@
         .showcase-frame-wrapper {
             position: relative;
             width: min(1400px, 98vw);
-            margin: -80px auto 0;
+            margin: -80px auto 10px;
         }
 
         .showcase-frame {
@@ -144,10 +144,10 @@
 
         .showcase-frame .frame-content {
             position: absolute;
-            top: 11.5%;
-            left: 3.6%;
-            right: 3.9%;
-            bottom: 13%;
+            top: 12%;
+            left: 4%;
+            right: 4.3%;
+            bottom: 13.5%;
             display: flex;
             z-index: 1;
             gap: 1.6%;
@@ -164,21 +164,20 @@
         }
 
         .frame-half img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(0.94);
-    transition: transform 0.6s ease;
-}
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
 
         .frame-half:hover img {
-            transform: scale(1.08);
+            transform: scale(1.0);
         }
 
         /* CTA - calismalarim.png inside frame at bottom-center */
         .cta-wrapper {
             position: absolute;
-            bottom: -7%;
+            bottom: -3%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 4;
@@ -188,7 +187,7 @@
         }
 
         .cta-img {
-            width: min(380px, 48vw);
+            width: min(320px, 42vw);
             cursor: pointer;
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: drop-shadow(0 4px 15px rgba(0,0,0,0.5));
@@ -209,7 +208,7 @@
             letter-spacing: 1px;
             text-shadow: 0 1px 5px rgba(0,0,0,0.8);
             line-height: 1.8;
-            margin-top: -18px;
+            margin-top: -8px;
         }
 
         .hero-instagram a {
@@ -497,15 +496,15 @@
             .showcase-frame-wrapper { width: 98vw; margin: -20px auto 5px; transform: translateY(0); }
             .showcase-frame { aspect-ratio: 726 / 344; }
             .showcase-frame .frame-content {
-                top: 11.5%;
-                left: 3.6%;
-                right: 3.9%;
-                bottom: 13%;
+                top: 12%;
+                left: 4%;
+                right: 4.3%;
+                bottom: 13.5%;
                 gap: 1.6%;
             }
 
             .cta-wrapper { bottom: -2%; }
-            .cta-img { width: min(190px, 48vw); }
+            .cta-img { width: min(160px, 42vw); }
 
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
