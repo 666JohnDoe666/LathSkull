@@ -1,310 +1,728 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LathSkull | El İşçiliği Gotik Tasarımlar</title>
+    <link rel="icon" type="image/png" href="https://666johndoe666.github.io/LathSkull/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        :root {
+            --accent: #c9a84c;
+            --accent-dim: #8a6f2e;
+        }
 
-<title>LathSkull</title>
+        html { scroll-behavior: smooth; }
 
-<link rel="icon" type="image/png" href="favicon.png">
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: #e8dcc8;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: url('https://666johndoe666.github.io/LathSkull/arkaplandesktop.png');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+        ::selection { background: var(--accent); color: #000; }
 
-<style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1008; }
+        ::-webkit-scrollbar-thumb { background: #5a4a3a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-html {
-    background: #0a0a0a;
-    scroll-behavior: smooth;
-}
+        /* INTRO */
+        .intro {
+            position: fixed;
+            inset: 0;
+            background-image: url('https://666johndoe666.github.io/LathSkull/arkaplandesktop.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            animation: introFade 2.5s ease forwards;
+            pointer-events: none;
+        }
 
-body {
-    margin: 0;
-    text-align: center;
-    color: #ddd;
+        .intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+        }
 
-    background-image: url("arkaplandesktop.png");
-    background-size: cover;
-    background-position: center -32px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+        .intro-logo {
+            width: 280px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: logoReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            filter: drop-shadow(0 0 40px rgba(201, 168, 76, 0.4));
+            position: relative;
+            z-index: 1;
+        }
 
-/* INTRO */
-.intro {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: introFade 1.8s ease forwards;
-}
+        @keyframes logoReveal {
+            0% { opacity: 0; transform: scale(0.8); filter: blur(15px) drop-shadow(0 0 40px rgba(201, 168, 76, 0.4)); }
+            100% { opacity: 1; transform: scale(1); filter: blur(0) drop-shadow(0 0 40px rgba(201, 168, 76, 0.4)); }
+        }
 
-.intro-logo {
-    width: 300px;
-    opacity: 0;
-    transform: scale(0.85);
-    animation: logoIn 1.2s ease forwards;
-}
+        @keyframes introFade {
+            0%, 65% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
 
-@keyframes logoIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.85);
-        filter: blur(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-    }
-}
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px 20px 80px;
+        }
 
-@keyframes introFade {
-    0% { opacity: 1; }
-    70% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+        }
 
-/* HEADER */
+        .hero-logo {
+            width: min(480px, 70vw);
+            margin-bottom: 5px;
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.6));
+            animation: heroFloat 6s ease-in-out infinite;
+        }
 
-header {
-    padding-top: 15px; /* 40 → 20 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
 
-.logo{
-    width:650px;
-    max-width:90%;
-    display:block;
-    margin:0 auto 25px;
-}
+        .hero-tagline {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(14px, 2.2vw, 22px);
+            font-weight: 400;
+            color: #f0e8d8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            line-height: 1.7;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
 
-p{
-    font-size: 35px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
+        /* SHOWCASE FRAME */
+        .showcase-frame-wrapper {
+            position: relative;
+            width: min(1250px, 98vw);
+            margin: 15px auto 35px;
+        }
 
-/* SHOWCASE SPLIT FRAME */
+        .showcase-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 726 / 344;
+        }
 
-.showcase{
-    margin-bottom: 0px;
-    margin-top: -20px;
-}
+        .showcase-frame .frame-overlay-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
 
-.split-frame {
-    position: relative;
-    width: 700px;
-    margin: 0 auto;
-}
+        .showcase-frame .frame-content {
+            position: absolute;
+            top: 11.5%;
+            left: 3.6%;
+            right: 3.9%;
+            bottom: 13%;
+            display: flex;
+            z-index: 1;
+            gap: 1.6%;
+        }
 
-.split-frame .half {
-    position: absolute;
-    top: 12%;
-    height: 76%;
-    width: 42%;
-    overflow: hidden;
-    z-index: 1;
-    display: block;
-}
+        .frame-half {
+            flex: 1;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.split-frame .left {
-    left: 6%;
-}
+        .frame-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
 
-.split-frame .right {
-    right: 6%;
-}
+        .frame-half:hover img {
+            transform: scale(1.08);
+        }
 
-.split-frame .half img {
-    width: 110%;
-    height: 110%;
-    object-fit: cover;
-    transform: scale(1.05);
-}
-.frame-overlay {
-    width: 100%;
-    display: block;
-    position: relative;
-    z-index: 10;
-    pointer-events: none;
-}
+        /* CTA - calismalarim.png inside frame at bottom-center */
+        .cta-wrapper {
+            position: absolute;
+            bottom: 9%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            text-align: center;
+            width: 100%;
+            pointer-events: none;
+        }
 
-/* SHOWCASE FIX */
-.showcase {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
+        .cta-img {
+            width: min(340px, 46vw);
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.5));
+            display: inline-block;
+            pointer-events: auto;
+        }
 
-/* WORK IMG */
-.work-img{
-    width: 380px;
-    max-width: 90%;
-    margin-top: -15px;
-    transition: .3s;
-    transform: none;
-}
+        .cta-img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 25px rgba(201, 168, 76, 0.3));
+        }
 
-.work-img:hover{
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}
+        /* INSTAGRAM */
+        .hero-instagram {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: #d0c4a8;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+            line-height: 1.8;
+        }
 
-/* GALLERY */
+        .hero-instagram a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.gallery{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-    margin-top:50px;
-}
+        .hero-instagram a:hover { color: #e8d8a8; }
 
-.gallery img{
-    width:320px;
-    max-width:90%;
-    border:2px solid #444;
-    transition:.3s;
-    filter:grayscale(100%);
-}
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
 
-.gallery img:hover{
-    filter:grayscale(0%);
-    transform:scale(1.03);
-}
+        .hero-scroll-hint svg { width: 22px; height: 22px; stroke: #8a7a60; }
 
-section{
-    padding:150px 20px;
-    min-height:500px;
-}
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(10px); opacity: 0.5; }
+        }
 
-section h1{
-    font-family:'Cinzel',serif;
-    font-size:42px;
-}
+        /* SECTIONS */
+        .section {
+            padding: 80px 20px;
+            position: relative;
+        }
 
-/* MOBILE */
+        .section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 8, 5, 0.35);
+            pointer-events: none;
+        }
 
-@media (max-width: 768px) {
+        .section > * {
+            position: relative;
+            z-index: 1;
+        }
 
-    body {
-        background-image: url("arkaplanmobile.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        min-height: 100vh;
-    }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-}
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d4a84c;
+            margin-bottom: 12px;
+            display: block;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+        }
 
-    .logo {
-    width: 85%;
-    max-width: 380px;
-    margin-bottom: 5px;
-    margin-top: -10px;
-}
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 700;
+            color: #f0e8d8;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
 
-    p {
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 1.2;
-        padding: 0 15px;
-        letter-spacing: 0.5px;
-    }
+        .section-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 0 auto;
+        }
 
-    header {
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 60px;
-    }
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
 
-    .split-frame {
-        width: 90%;
-    }
-}
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            border: 2px solid #4a3a28;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
 
-</style>
+        .gallery-item:hover {
+            border-color: var(--accent-dim);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+        }
 
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+            filter: brightness(0.85);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay { background: rgba(0, 0, 0, 0.2); }
+
+        .gallery-item-icon {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-item-icon { opacity: 1; transform: scale(1); }
+        .gallery-item-icon svg { width: 18px; height: 18px; stroke: var(--accent); }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 8, 5, 0.92);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active { opacity: 1; visibility: visible; }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border: 2px solid #4a3a28;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox.active img { transform: scale(1); }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            border: 1px solid #5a4a3a;
+            background: rgba(30, 20, 10, 0.85);
+            color: #e8dcc8;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border: 1px solid #5a4a3a;
+            background: rgba(30, 20, 10, 0.85);
+            color: #e8dcc8;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover { border-color: var(--accent); color: var(--accent); }
+        .lightbox-prev { left: 25px; }
+        .lightbox-next { right: 25px; }
+
+        /* FOOTER */
+        .footer {
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #3a3020;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 8, 5, 0.4);
+            pointer-events: none;
+        }
+
+        .footer > * { position: relative; z-index: 1; }
+
+        .footer-logo { width: 110px; margin-bottom: 15px; opacity: 0.7; }
+
+        .footer-text {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #a09080;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 42px;
+            height: 42px;
+            border: 1px solid #5a4a3a;
+            background: rgba(30, 20, 10, 0.9);
+            color: var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { border-color: var(--accent); background: rgba(50, 35, 15, 0.95); color: #e8d8a8; }
+        .back-to-top svg { width: 18px; height: 18px; }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .hero { padding: 40px 15px 60px; }
+            .hero-logo { width: min(320px, 80vw); }
+            .hero-tagline { font-size: 13px; letter-spacing: 1px; }
+
+            .showcase-frame-wrapper { width: 98vw; margin: 10px auto 25px; }
+            .showcase-frame { aspect-ratio: 726 / 344; }
+            .showcase-frame .frame-content {
+                top: 11.5%;
+                left: 3.6%;
+                right: 3.9%;
+                bottom: 13%;
+                gap: 1.6%;
+            }
+
+            .cta-wrapper { bottom: 8%; }
+            .cta-img { width: min(170px, 46vw); }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .section { padding: 60px 15px; }
+            .lightbox-nav { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- INTRO -->
-<div class="intro">
-    <img src="lathskull.png" class="intro-logo">
-</div>
-
-<header>
-
-<img src="lathskull.png" class="logo">
-
-<p>
-El İşçiliği Gravürlü Kafatasları,<br>
-Motosiklet Süslemeleri ve Gotik Tasarımlar
-</p>
-
-<div class="showcase">
-
-    <div class="split-frame">
-
-        <a href="#motorlar" class="half left">
-            <img src="motor.jpg">
-        </a>
-
-        <a href="#kafalar" class="half right">
-            <img src="kafa.jpg">
-        </a>
-
-        <img src="cerceve.png" class="frame-overlay">
-
+    <!-- INTRO -->
+    <div class="intro">
+        <img src="https://666johndoe666.github.io/LathSkull/lathskull.png" class="intro-logo" alt="LathSkull">
     </div>
 
-</div>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
 
-<a href="#galeri">
-<img src="calismalarim.png" class="work-img">
-</a>
+            <img src="https://666johndoe666.github.io/LathSkull/lathskull.png" class="hero-logo" alt="LathSkull">
 
-</header>
+            <p class="hero-tagline">
+                El İşçiliği Gravürlü Kafatasları,<br>
+                Motosiklet Süslemeleri ve Gotik Tasarımlar
+            </p>
 
-<section id="kafalar">
-<h1>Kafatası Çalışmaları</h1>
-<div class="gallery">
-    <img src="kafa1.jpg">
-    <img src="kafa2.jpg">
-    <img src="kafa3.jpg">
-</div>
-</section>
+            <div class="showcase-frame-wrapper">
+                <div class="showcase-frame">
+                    <img src="https://666johndoe666.github.io/LathSkull/cerceve.png" class="frame-overlay-img" alt="">
+                    <div class="frame-content">
+                        <div class="frame-half" onclick="document.getElementById('kafatasi').scrollIntoView({behavior:'smooth'})">
+                            <img src="https://666johndoe666.github.io/LathSkull/kafa.webp" alt="Kafatası">
+                        </div>
+                        <div class="frame-half" onclick="document.getElementById('motosiklet').scrollIntoView({behavior:'smooth'})">
+                            <img src="https://666johndoe666.github.io/LathSkull/motor.webp" alt="Motosiklet">
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="#galeri">
+                        <img src="https://666johndoe666.github.io/LathSkull/calismalarim.png" class="cta-img" alt="Çalışmalarımı Gör">
+                    </a>
+                </div>
+            </div>
 
-<section id="motorlar">
-<h1>Motosiklet Gravürleri</h1>
-<div class="gallery">
-    <img src="motor1.jpg">
-    <img src="motor2.jpg">
-    <img src="motor3.jpg">
-</div>
-</section>
+            <p class="hero-instagram">
+                İletişim ve Sipariş<br>
+                Instagram: <a href="https://instagram.com/lathskull" target="_blank">@lathskull</a>
+            </p>
 
-<section id="galeri">
-<h1>Tüm Çalışmalar</h1>
-<div class="gallery">
-    <img src="calisma1.jpg">
-    <img src="calisma2.jpg">
-    <img src="calisma3.jpg">
-    <img src="calisma3.jpg">
-</div>
-</section>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- KAFATASI -->
+    <section class="section" id="kafatasi">
+        <div class="section-header reveal">
+            <span class="section-label">Koleksiyon</span>
+            <h1 class="section-title">Kafatası Çalışmaları</h1>
+            <div class="section-line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal" onclick="openLightbox(0, 'kafa')">
+                <img src="https://666johndoe666.github.io/LathSkull/kafa.webp" alt="Kafatası" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOTOSİKLET -->
+    <section class="section" id="motosiklet">
+        <div class="section-header reveal">
+            <span class="section-label">Koleksiyon</span>
+            <h1 class="section-title">Motosiklet Gravürleri</h1>
+            <div class="section-line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal" onclick="openLightbox(0, 'motor')">
+                <img src="https://666johndoe666.github.io/LathSkull/motor.webp" alt="Motosiklet" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERİ -->
+    <section class="section" id="galeri">
+        <div class="section-header reveal">
+            <span class="section-label">Portfolyo</span>
+            <h1 class="section-title">Tüm Çalışmalar</h1>
+            <div class="section-line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal" onclick="openLightbox(0, 'all')">
+                <img src="https://666johndoe666.github.io/LathSkull/kafa.webp" alt="Kafatası" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(1, 'all')">
+                <img src="https://666johndoe666.github.io/LathSkull/motor.webp" alt="Motosiklet" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <img src="https://666johndoe666.github.io/LathSkull/lathskull.png" class="footer-logo" alt="LathSkull">
+        <p class="footer-text">&copy; 2024 LathSkull &mdash; Tüm Hakları Saklıdır</p>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+        <img src="" alt="Lightbox Image" id="lightboxImg">
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script>
+        const IMG_BASE = 'https://666johndoe666.github.io/LathSkull/';
+
+        const galleryData = {
+            kafa: ['kafa.webp'],
+            motor: ['motor.webp'],
+            all: ['kafa.webp', 'motor.webp']
+        };
+
+        let currentGallery = '';
+        let currentIndex = 0;
+
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function openLightbox(index, gallery) {
+            currentGallery = gallery;
+            currentIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = IMG_BASE + galleryData[gallery][index];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            const items = galleryData[currentGallery];
+            currentIndex = (currentIndex + direction + items.length) % items.length;
+            document.getElementById('lightboxImg').src = IMG_BASE + items[currentIndex];
+        }
+
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        setTimeout(() => {
+            const intro = document.querySelector('.intro');
+            if (intro) intro.remove();
+        }, 3000);
+    </script>
 
 </body>
 </html>
