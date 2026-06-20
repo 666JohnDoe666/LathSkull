@@ -496,15 +496,19 @@
         @media (max-width: 768px) {
 
     body {
-    background: #1a0f08;
-}
+        background: none;
+    }
 
-.hero {
-    background-image: url('arkaplanmobile.png');
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
-}
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('arkaplanmobile.png') center top / cover no-repeat;
+        z-index: -1;
+    }
 
     .cta-wrapper {
         bottom: -45%;
