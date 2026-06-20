@@ -494,13 +494,28 @@
 
         /* MOBILE */
         @media (max-width: 768px) {
-            body {
-                background-image: url('https://666johndoe666.github.io/LathSkull/arkaplanmobile.png');
-                background-size: 100% 100%;
-                background-position: center top;
-                background-attachment: scroll;
-                background-repeat: no-repeat;
-            }
+            @media (max-width: 768px) {
+
+    body {
+        background-image: url('arkaplanmobile.png');
+        background-size: 100% auto;
+        background-repeat: repeat-y;
+        background-position: center top;
+    }
+
+    .cta-wrapper {
+        bottom: -45%;
+    }
+
+    .cta-img {
+        width: min(280px, 70vw);
+    }
+
+    .hero-instagram {
+        margin-top: 150px;
+    }
+
+}
 
             .intro {
                 background-image: url('https://666johndoe666.github.io/LathSkull/arkaplanmobile.png');
